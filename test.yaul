@@ -1,1 +1,1 @@
-! (toto : int) { 0 }
+print("This is awesome\n")
