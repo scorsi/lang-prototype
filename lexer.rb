@@ -20,25 +20,25 @@ class Lexer
         tokens << [:string, string]
         i += string.size + 2
       elsif declaration = chunk[/\A(\!)/, 1]
-        tokens << [:declaration, "!"]
+        tokens << [:declaration, '!']
         i += 1
       elsif left_paren = chunk[/\A(\()/, 1]
-        tokens << [:left_paren, "("]
+        tokens << [:left_paren, '(']
         i += 1
       elsif right_paren = chunk[/\A(\))/, 1]
-        tokens << [:right_paren, ")"]
+        tokens << [:right_paren, ')']
         i += 1
       elsif left_curly_bracket = chunk[/\A({)/, 1]
-        tokens << [:left_curly_bracket, "{"]
+        tokens << [:left_curly_bracket, '{']
         i += 1
       elsif right_curly_bracket = chunk[/\A(})/, 1]
-        tokens << [:right_curly_bracket, "}"]
+        tokens << [:right_curly_bracket, '}']
         i += 1
       elsif colon = chunk[/\A(:)/, 1]
-        tokens << [:colon, ":"]
+        tokens << [:colon, ':']
         i += 1
       elsif comma = chunk[/\A(,)/, 1]
-        tokens << [:comma, ","]
+        tokens << [:comma, ',']
         i += 1
       elsif whitespace = chunk[/\A([ \t\n])+/, 1]
         i += whitespace.size
