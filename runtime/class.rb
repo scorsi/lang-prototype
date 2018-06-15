@@ -2,7 +2,7 @@ class AwesomeClass < AwesomeObject
   attr_reader :runtime_methods
 
   def initialize(runtime_class = nil)
-    @runtime_class = runtime_class
+    super(runtime_class)
     @runtime_methods = {}
   end
 
