@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby -I.
+
+require 'interpreter'
+require 'readline'
+
+interpreter = Interpreter.new
+
+if ARGV[0].nil?
+  puts 'Yaul REPL. Press Ctrl+C to quit.'
+  begin
+    loop do
+      line = Readline.readline('>> ')
+      Readline::HISTORY.push(line)
+      value = interpreter.eval(line)
+      puts "=> #{value.ruby_value.inspect}"
+    end
+  rescue Interrupt
+    puts 'Bye !'
+  end
+else
+  text = begin
+    File.open(ARGV[0], 'r', &:read)
+  rescue Errno::ENOENT
+    puts 'Can\'t open the file.'
+    nil
+  end
+
+  return 1 if text.nil?
+
+  interpreter.eval(text)
+end
