@@ -35,5 +35,5 @@ Constants = {
   'true' => const_true,
   'false' => const_false,
   'nil' => const_nil
-}.freeze
+}
 RootContext = Context.new(Constants['Object'].new)
